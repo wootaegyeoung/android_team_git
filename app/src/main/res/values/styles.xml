@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="woo_tae_gye">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="woo_tae_gye2">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="some_id_2">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="p_2">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">#000000</item>
+    </style>
+    <style name="profile_edit">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#545454</item>
+
+    </style>
+    <style name="profile">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="some_id">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="p">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="now">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#99433C41</item>
+    </style>
+    <style name="min_ago3">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#993C3C43</item>
+
+    </style>
+    <style name="min_ago12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#993C3C43</item>
+
+    </style>
+    <style name="hour_ago3">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#993C3C43</item>
+    </style>
+    <style name="command_for">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="nd_in_labe_">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="a_new_recom">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>

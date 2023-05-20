@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <!-- now -->
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/alarm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="124dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/notification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="408dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/notification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="308dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/notification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/notification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/now"
+        android:layout_width="37dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="148dp"
+
+        android:text="@string/now"
+        android:textAppearance="@style/now"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/min_ago3"
+        android:layout_width="66dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="244dp"
+        android:text="@string/min_ago3"
+        android:textAppearance="@style/min_ago3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- 12 min ago -->
+    <TextView
+        android:id="@+id/min_ago12"
+        android:layout_width="70dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="332dp"
+        android:text="@string/min_ago12"
+        android:textAppearance="@style/min_ago12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- 3 hour ago -->
+    <TextView
+        android:id="@+id/hour_ago3"
+        android:layout_width="72dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="432dp"
+        android:text="@string/hour_ago3"
+        android:textAppearance="@style/hour_ago3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/command_for"
+        android:layout_width="251dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="136dp"
+        android:text="@string/command_for"
+        android:textAppearance="@style/command_for"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- 3nd in labe-contest -->
+    <TextView
+        android:id="@+id/nd_in_labe_"
+        android:layout_width="251dp"
+        android:layout_height="29dp"
+        android:layout_alignParentTop="true"
+
+        android:layout_marginTop="230dp"
+        android:text="@string/nd_in_labe_"
+        android:textAppearance="@style/nd_in_labe_"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/a_new_recom"
+        android:layout_width="199dp"
+        android:layout_height="40dp"
+
+
+        android:layout_marginTop="320dp"
+        android:text="@string/a_new_recom"
+        android:textAppearance="@style/a_new_recom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- command for -->
+    <TextView
+        android:id="@+id/command_for2"
+        android:layout_width="251dp"
+        android:layout_height="24dp"
+
+        android:layout_marginTop="424dp"
+        android:text="@string/command_for"
+        android:textAppearance="@style/command_for"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/calendar"
+        android:icon = "@drawable/calender_nonclick"
+        android:title = "일정" />
+    <item
+        android:id="@+id/billboard"
+        android:icon = "@drawable/billboard_nonclick"
+        android:title = "게시판" />
+    <item
+        android:id="@+id/home"
+        android:icon = "@drawable/home_nonclick"
+        android:title = "홈" />
+    <item
+        android:id="@+id/notification"
+        android:icon = "@drawable/notification_nonclick"
+        android:title = "알람" />
+    <item
+        android:id="@+id/profile"
+        android:icon = "@drawable/profile_nonclick"
+        android:title = "프로필" />
+</menu>

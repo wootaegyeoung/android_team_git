@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    ...
+    <!-- Customize your theme here. -->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/start</item>
+    </style>
+    <style name="some_id1">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+
+    </style>
+    <style name="home">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#222222</item>
+        <item name="android:background">#00ff0000</item>
+    </style>
+
+</resources>
