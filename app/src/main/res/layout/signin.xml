@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/myEditText1"
+        android:id="@+id/signup_edit_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="204dp"
@@ -42,7 +42,7 @@
 
 
     <EditText
-        android:id="@+id/myEditText2"
+        android:id="@+id/signup_edit_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="267dp"
@@ -53,7 +53,7 @@
 
 
     <EditText
-        android:id="@+id/myEditText3"
+        android:id="@+id/signup_edit_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="330dp"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/myEditText4"
+        android:id="@+id/signup_edit_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="393dp"
@@ -121,7 +121,7 @@
 
 
     <ImageButton
-        android:id="@+id/myImageButton"
+        android:id="@+id/btn_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickImageButton"
@@ -161,19 +161,19 @@
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="61dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="600dp" />
 
     <TextView
-        android:id="@+id/myTextView4"
+        android:id="@+id/tv_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:text="Log In"
         android:textColor="#48B9EA"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="229dp"
+        android:layout_marginStart="250dp"
         android:layout_marginTop="600dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

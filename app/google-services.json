@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1067937044344",
+    "project_id": "damo-loginsignup",
+    "storage_bucket": "damo-loginsignup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067937044344:android:f86b1dc13b6de3c94b1a8d",
+        "android_client_info": {
+          "package_name": "com.gachon.mp_termproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067937044344-46ucdo7v1cb0hpudobeauj2rrfrojhui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL_DHvgAUbl2EXs9p6Ahm5qHiTKeIhjOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067937044344-46ucdo7v1cb0hpudobeauj2rrfrojhui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
