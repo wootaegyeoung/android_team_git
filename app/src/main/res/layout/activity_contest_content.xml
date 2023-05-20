@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@drawable/board_background_img">
+    android:background="@drawable/board_background_img"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,26 +40,26 @@
             android:textColor="@color/black"
             android:text="자유 게시판" />
 
-        <Button
-            android:layout_width="33dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="6dp"
-            android:layout_toLeftOf="@+id/write_btn"
-            android:background="@drawable/search_btn"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"></Button>
 
-        <Button
-            android:id="@+id/write_btn"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="12dp"
-            android:background="@drawable/write_post_btn"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"></Button>
+
     </RelativeLayout>
-
+    <Button
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="6dp"
+        android:layout_toLeftOf="@+id/write_btn"
+        android:background="@drawable/search_btn"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"/>
+    <Button
+        android:id="@+id/write_btn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/write_post_btn"
+        />
 
 
     <View

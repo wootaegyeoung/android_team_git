@@ -1,14 +1,16 @@
 package com.gachon.mp_termproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class write extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class click_billboard extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_write);
+        setContentView(R.layout.activity_clickbillboard);
     }
+
 }

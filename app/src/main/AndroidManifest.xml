@@ -18,13 +18,16 @@
             android:name=".reward_main"
             android:exported="false" />
         <activity
+            android:name=".click_billboard"
+            android:exported="false" />
+        <activity
             android:name=".contest_main"
             android:exported="false" />
         <activity
             android:name=".write"
             android:exported="false" />
         <activity
-            android:name=".clickbillboard"
+            android:name=".write_free"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
