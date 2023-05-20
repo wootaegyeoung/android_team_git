@@ -16,7 +16,8 @@ public class start extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+//                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(),login.class); // 앱 처음화면 로그인화면으로 설정
                 startActivity(intent);
                 finish();
             }

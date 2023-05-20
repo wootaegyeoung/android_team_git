@@ -11,6 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MP_TermProject"
         tools:targetApi="31">
+
+        <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".signup"
+            android:exported="false" />
         <activity
             android:name=".myprofile"
             android:exported="false" />
