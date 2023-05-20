@@ -15,6 +15,12 @@
             android:name=".myprofile"
             android:exported="false" />
         <activity
+            android:name=".reward_main"
+            android:exported="false" />
+        <activity
+            android:name=".contest_main"
+            android:exported="false" />
+        <activity
             android:name=".write"
             android:exported="false" />
         <activity
