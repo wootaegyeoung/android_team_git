@@ -52,10 +52,16 @@ public class login extends AppCompatActivity {
                 String strEmail = login_email.getText().toString();
                 String strPwd = login_password.getText().toString();
 
-                if(strEmail.equals(""))
+                if(strEmail.equals("")) {
+                    Toast.makeText(login.this, "아이디를 입력하세요", Toast.LENGTH_SHORT).show();
                     strEmail = "****";
-                if(strPwd.equals(""))
+                    return;
+                }
+                if(strPwd.equals("")) {
+                    Toast.makeText(login.this, "비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
                     strPwd = "++++";
+                    return;
+                }
                 mFirebaseAuth.signInWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(login.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

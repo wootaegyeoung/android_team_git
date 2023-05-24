@@ -3,7 +3,6 @@ package com.gachon.mp_termproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -31,7 +30,7 @@ public class signup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signin);
+        setContentView(R.layout.signup);
 
         // 로그인 화면으로 돌아가는 버튼(텍스트뷰)
         TextView tv_login = findViewById(R.id.tv_login);
@@ -68,20 +67,21 @@ public class signup extends AppCompatActivity {
                 String strPhone = edit_phone.getText().toString();
 
                 // null 처리
-                if(edit_email.equals("")) {
-                    Toast.makeText(signup.this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(edit_password.equals("")) {
-                    Toast.makeText(signup.this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(edit_name.equals("")) {
+
+                if(strName.equals("")) {
                     Toast.makeText(signup.this, "닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(edit_phone.equals("")) {
+                if(strEmail.equals("")) {
+                    Toast.makeText(signup.this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(strPhone.equals("")) {
                     Toast.makeText(signup.this, "번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(strPwd.equals("")) {
+                    Toast.makeText(signup.this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
