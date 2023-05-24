@@ -46,7 +46,7 @@ public class calendar extends Fragment {
         tv_title1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), MainActivity.class);
+                Intent i = new Intent(getActivity(), clickBillboard.class);
                 startActivity(i);
             }
         });

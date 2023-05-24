@@ -12,6 +12,10 @@
         android:theme="@style/Theme.MP_TermProject"
         tools:targetApi="31">
 
+
+        <activity
+            android:name=".clickBillboard"
+            android:exported="false" />
         <activity
             android:name=".login"
             android:exported="false" />
@@ -23,9 +27,6 @@
             android:exported="false" />
         <activity
             android:name=".reward_main"
-            android:exported="false" />
-        <activity
-            android:name=".click_billboard"
             android:exported="false" />
         <activity
             android:name=".contest_main"
