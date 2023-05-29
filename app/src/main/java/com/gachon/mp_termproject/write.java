@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+import androidx.core.util.Pair;
 
 public class write extends AppCompatActivity {
 
@@ -70,7 +70,7 @@ public class write extends AppCompatActivity {
 
                 // 글 올린 시간
                 LocalDateTime currentTime = LocalDateTime.now();
-                String ct = currentTime.getYear() + "-" + currentTime.getMonth() + "-" + currentTime.getDayOfMonth() + " " + currentTime.getHour() + ":" + currentTime.getMinute() + ":" + currentTime.getSecond();
+                String ct = currentTime.getYear() + "-" + currentTime.getMonthValue() + "-" + currentTime.getDayOfMonth() + " " + currentTime.getHour() + ":" + currentTime.getMinute() + ":" + currentTime.getSecond();
 
                 write_content.put("제목", str_title);
                 write_content.put("내용", str_content);
@@ -95,6 +95,7 @@ public class write extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
+                btn_camera.setBackgroundResource(R.drawable.camera_fin);
             }
 
 
@@ -173,15 +174,13 @@ public class write extends AppCompatActivity {
     }
 
     private void showMenuDialog() {
-        Dialog dialog = new Dialog(this);
+        Dialog dialog = new Dialog(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
         dialog.setContentView(R.layout.timeset); // 메뉴 화면의 레이아웃 설정
 
         // 메뉴 화면에서 필요한 뷰 요소들 가져오기
         DatePicker startDatePicker = dialog.findViewById(R.id.startDatePicker);
-        TimePicker startTimePicker = dialog.findViewById(R.id.startTimePicker);
         DatePicker endDatePicker = dialog.findViewById(R.id.endDatePicker);
-        TimePicker endTimePicker = dialog.findViewById(R.id.endTimePicker);
-        Button confirmButton = dialog.findViewById(R.id.confirmButton);
+        Button confirmButton = dialog.findViewById(R.id.btn_set);
 
         // 확인 버튼 클릭 이벤트 처리
         confirmButton.setOnClickListener(v -> {
@@ -189,17 +188,15 @@ public class write extends AppCompatActivity {
             int startYear = startDatePicker.getYear();
             int startMonth = startDatePicker.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
             int startDay = startDatePicker.getDayOfMonth();
-            int startHour = startTimePicker.getHour();
-            int startMinute = startTimePicker.getMinute();
+            String startDate = Integer.toString(startYear) + "-" + Integer.toString(startMonth) + "-" + Integer.toString(startDay);
+            write_content.put("시작날짜", startDate);
 
             int endYear = endDatePicker.getYear();
-            int endMonth = endDatePicker.getMonth() + 1;
+            int endMonth = endDatePicker.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
             int endDay = endDatePicker.getDayOfMonth();
-            int endHour = endTimePicker.getHour();
-            int endMinute = endTimePicker.getMinute();
+            String endDate = Integer.toString(endYear) + "-" + Integer.toString(endMonth) + "-" + Integer.toString(endDay);
+            write_content.put("종료날짜", endDate);
 
-            // 선택된 날짜와 시간 활용 예시: Firebase Firestore에 저장 등
-            // ...
 
             // 팝업 창 닫기
             dialog.dismiss();
