@@ -3,14 +3,17 @@ package com.gachon.mp_termproject;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -53,7 +56,7 @@ public class write extends AppCompatActivity {
 
         Button btn_finish = findViewById(R.id.btn_finish);
         ImageButton btn_camera = findViewById(R.id.btn_camera);
-        ImageButton btn_tim = findViewById(R.id.btn_time);
+        ImageButton btn_time = findViewById(R.id.btn_time);
 
 
         CW_collectionRef = db.collection("Contest_Writes");
@@ -95,6 +98,13 @@ public class write extends AppCompatActivity {
             }
 
 
+        });
+
+        btn_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMenuDialog();
+            }
         });
 
         // 데이터의 추가를 감지하는 리스너(-->> 가장 최근에 올라간 글의 정보를 갖고 오게 설정)
@@ -160,6 +170,43 @@ public class write extends AppCompatActivity {
                     // 업로드 실패 시 처리할 내용
                     // 오류 메시지 출력 등
                 });
+    }
+
+    private void showMenuDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.timeset); // 메뉴 화면의 레이아웃 설정
+
+        // 메뉴 화면에서 필요한 뷰 요소들 가져오기
+        DatePicker startDatePicker = dialog.findViewById(R.id.startDatePicker);
+        TimePicker startTimePicker = dialog.findViewById(R.id.startTimePicker);
+        DatePicker endDatePicker = dialog.findViewById(R.id.endDatePicker);
+        TimePicker endTimePicker = dialog.findViewById(R.id.endTimePicker);
+        Button confirmButton = dialog.findViewById(R.id.confirmButton);
+
+        // 확인 버튼 클릭 이벤트 처리
+        confirmButton.setOnClickListener(v -> {
+            // 선택된 날짜와 시간 가져오기
+            int startYear = startDatePicker.getYear();
+            int startMonth = startDatePicker.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
+            int startDay = startDatePicker.getDayOfMonth();
+            int startHour = startTimePicker.getHour();
+            int startMinute = startTimePicker.getMinute();
+
+            int endYear = endDatePicker.getYear();
+            int endMonth = endDatePicker.getMonth() + 1;
+            int endDay = endDatePicker.getDayOfMonth();
+            int endHour = endTimePicker.getHour();
+            int endMinute = endTimePicker.getMinute();
+
+            // 선택된 날짜와 시간 활용 예시: Firebase Firestore에 저장 등
+            // ...
+
+            // 팝업 창 닫기
+            dialog.dismiss();
+        });
+
+        // 팝업 창 보여주기
+        dialog.show();
     }
 
 }
