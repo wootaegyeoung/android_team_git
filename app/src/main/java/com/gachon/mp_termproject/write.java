@@ -1,5 +1,6 @@
 package com.gachon.mp_termproject;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +18,12 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -45,6 +52,7 @@ public class write extends AppCompatActivity {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
 
+    FirebaseAuth mAuth = FirebaseAuth.getInstance(); // 로그인정보 갖고오기
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +66,47 @@ public class write extends AppCompatActivity {
         ImageButton btn_camera = findViewById(R.id.btn_camera);
         ImageButton btn_time = findViewById(R.id.btn_time);
 
+        EditText et_total = findViewById(R.id.total_reward);
+        EditText et_first = findViewById(R.id.first_reward);
+        EditText et_second = findViewById(R.id.second_reward);
+        EditText et_third = findViewById(R.id.third_reward);
 
-        CW_collectionRef = db.collection("Contest_Writes");
 
+        DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference(); // 리얼타임 디비에서 회원정보
+        String email = mAuth.getCurrentUser().getEmail();
+        final String[] current_name = new String[1]; // 작성자 정보
+        mDatabaseRef.child("UserAccount").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                    // 각 child 데이터에 대한 처리
+                    // 특정 데이터를 찾는 조건을 확인하고 원하는 작업 수행
+                    if (childSnapshot.exists() && childSnapshot.child("emailId").getValue().equals(email)) {
+                        current_name[0] = childSnapshot.child("name").getValue().toString(); // 현재 사용자의 닉네임 받아오기
+                        write_content.put("작성자", current_name[0]);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         // 글 작성 완료 버튼 이벤트
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String str_title = et_title.getText().toString();
                 String str_content = et_content.getText().toString();
+
+                Map<String, String> rewardMap = new HashMap<>();
+                rewardMap.put("total", et_total.getText().toString());
+                rewardMap.put("1", et_first.getText().toString());
+                rewardMap.put("2", et_second.getText().toString());
+                rewardMap.put("3", et_third.getText().toString());
+
+
+
 
                 // 글 올린 시간
                 LocalDateTime currentTime = LocalDateTime.now();
@@ -75,14 +115,19 @@ public class write extends AppCompatActivity {
                 write_content.put("제목", str_title);
                 write_content.put("내용", str_content);
                 write_content.put("시간", ct);
+                write_content.put("상금", rewardMap);
 
+
+                CW_collectionRef = db.collection("Contest_Writes");
                 // 파이어 스토어에 글 정보 등록
                 CW_collectionRef.add(write_content).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(getApplicationContext(), "저장 성공", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
+
 
             }
         });
@@ -107,27 +152,6 @@ public class write extends AppCompatActivity {
                 showMenuDialog();
             }
         });
-
-        // 데이터의 추가를 감지하는 리스너(-->> 가장 최근에 올라간 글의 정보를 갖고 오게 설정)
-        CW_collectionRef.orderBy("시간", Query.Direction.DESCENDING)
-                .limit(1)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot snapshot, @Nullable FirebaseFirestoreException e) {
-                        if (e != null) {
-                            // 에러 처리
-                            return;
-                        }
-
-                        if (snapshot != null && !snapshot.isEmpty()) {
-                            // 마지막에 추가된 문서 가져오기
-                            DocumentSnapshot lastDocument = snapshot.getDocuments().get(0);
-                            String str_title = lastDocument.getString("제목");
-                            String str_content = lastDocument.getString("내용");
-
-                        }
-                    }
-                });
 
 
     }
@@ -162,7 +186,7 @@ public class write extends AppCompatActivity {
                     // 업로드된 이미지의 다운로드 URL 가져오기
                     imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                         String downloadUrl = uri.toString();
-                        write_content.put("image", downloadUrl);
+                        write_content.put("image", filename);
                         // 업로드된 이미지의 다운로드 URL을 사용하여 원하는 작업 수행
                         // 예: 데이터베이스에 URL 저장, 이미지를 표시하는 등
                     });

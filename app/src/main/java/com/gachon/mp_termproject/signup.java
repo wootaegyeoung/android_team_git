@@ -105,7 +105,7 @@ public class signup extends AppCompatActivity {
                                         account.setPhone(strPhone);
 
                                         mDatabaseRef.child("UserAccount").child(strName).setValue(account);
-                                        mDatabaseRef.child("UserAccount").child(strName).child("reward").setValue(0);
+                                        mDatabaseRef.child("UserAccount").child(strName).child("reward").setValue(0); // 상금정보 업데이트
                                         Toast.makeText(signup.this, "회원가입에 성공했습니다.", Toast.LENGTH_SHORT).show();
                                     } else{
                                         Toast.makeText(signup.this, "회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show();
