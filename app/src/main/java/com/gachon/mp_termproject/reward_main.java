@@ -25,6 +25,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -74,9 +76,9 @@ public class reward_main extends AppCompatActivity {
                                 String str_content = document.getString("내용");
                                 String str_writer = document.getString("작성자");
                                 String str_image = document.getString("image");
+                                String send_time = document.getString("시간");
                                 String str_id = document.getString("id");
                                 Map<String, Object> map_reward = (Map<String, Object>) document.getData().get("상금");
-
                                 if (str_image == null)
                                     return;
 
@@ -88,11 +90,17 @@ public class reward_main extends AppCompatActivity {
                                     public void onSuccess(Uri uri) {
                                         // 이미지 다운로드 성공 시 처리할 작업
                                         // uri를 사용하여 이미지를 표시할 수 있음
-                                        Post newPost = new Post(str_title, str_writer, str_content, map_reward, uri, null, str_id, getApplicationContext());
+                                        Post newPost = new Post(str_title, str_writer, str_content, map_reward, uri, null, send_time, str_id, getApplicationContext());
                                         newPosts.add(newPost);
 
                                         if (newPosts.size() == value.size()) {
                                             // 모든 데이터를 받았을 때 RecyclerView 업데이트
+                                            Collections.sort(newPosts, new Comparator<Post>() {
+                                                @Override
+                                                public int compare(Post o1, Post o2) {
+                                                    return o2.getSend_time().compareTo(o1.getSend_time());
+                                                }
+                                            });
                                             postList.clear();
                                             postList.addAll(newPosts);
                                             postAdapter.notifyDataSetChanged();
@@ -106,6 +114,7 @@ public class reward_main extends AppCompatActivity {
                                     }
                                 });
                             }
+
                         }
                     }
                 });

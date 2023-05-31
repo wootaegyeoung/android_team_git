@@ -18,16 +18,18 @@ public class Post implements Parcelable {
     private Uri imageURI; // 이미지
     private List<Comment> commentList; // 댓글 모음
 
+    private String send_time; // 올린시간
     private String post_id; // 파이어 스토어 상에서의 문서 id
     private Context context;
 
-    public Post(String title, String writer, String content, Map<String, Object> reward, Uri imageURI, List<Comment> commentList, String post_id, Context context) {
+    public Post(String title, String writer, String content, Map<String, Object> reward, Uri imageURI, List<Comment> commentList, String send_time, String post_id, Context context) {
         this.title = title;
         this.writer = writer;
         this.content = content;
         this.reward = reward;
         this.imageURI = imageURI;
         this.commentList = commentList;
+        this.send_time = send_time;
         this.post_id = post_id;
         this.context = context;
     }
@@ -70,6 +72,9 @@ public class Post implements Parcelable {
         return reward;
     }
 
+    public String getSend_time() {
+        return send_time;
+    }
     public Uri getImageURI() {
         return imageURI;
     }

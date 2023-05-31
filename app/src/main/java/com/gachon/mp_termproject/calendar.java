@@ -32,6 +32,8 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +67,7 @@ public class calendar extends Fragment {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 String selectedDay = Integer.toString(year) + "-" + Integer.toString(month + 1) + "-" + Integer.toString(dayOfMonth); // 선택된 날짜를 디비에 저장된 형식과 같게 변경
                 scheduleList.clear(); // 기존 데이터를 모두 제거
+                scheduleAdapter.notifyDataSetChanged(); // 어댑터에 변경 내용 반영
 
                 db.collection("Contest_Writes")
                         .get()
@@ -88,6 +91,7 @@ public class calendar extends Fragment {
                                         String str_content = document.getString("내용");
                                         String str_writer = document.getString("작성자");
                                         String str_image = document.getString("image");
+                                        String send_time = document.getString("시간");
                                         String str_id = document.getString("id");
                                         Map<String, Object> map_reward = (Map<String, Object>) document.getData().get("상금");
 
@@ -102,10 +106,16 @@ public class calendar extends Fragment {
                                             @Override
                                             public void onSuccess(Uri uri) {
                                                 // 이미지 다운로드 성공 시 처리할 작업
-                                                Post connected_post = new Post(str_title, str_writer, str_content, map_reward, uri, null, str_id, getContext());//연결된 post 객체
+                                                Post connected_post = new Post(str_title, str_writer, str_content, map_reward, uri, null, send_time, str_id, getContext());//연결된 post 객체
                                                 Schedule newSchedule = new Schedule(convertMonth(month + 1) , dayOfMonth, contest_title, contest_period, connected_post);
                                                 newSchudleList.add(newSchedule);
                                                 if (newSchudleList != null) {
+                                                    Collections.sort(newSchudleList, new Comparator<Schedule>() {
+                                                        @Override
+                                                        public int compare(Schedule o1, Schedule o2) {
+                                                            return o1.getContest_period().compareTo(o2.getContest_period());
+                                                        }
+                                                    });
                                                     scheduleList.clear(); // 기존 데이터를 모두 제거
                                                     scheduleList.addAll(newSchudleList); // 새로운 데이터로 업데이트
                                                     scheduleAdapter.notifyDataSetChanged(); // 어댑터에 변경 내용 반영
