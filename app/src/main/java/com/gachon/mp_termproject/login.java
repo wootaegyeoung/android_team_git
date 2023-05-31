@@ -71,6 +71,7 @@ public class login extends AppCompatActivity {
                             startActivity(intent);
                             login_email.setText("");
                             login_password.setText("");
+                            finish();
                         }else {
                             Toast.makeText(login.this, "로그인 실패", Toast.LENGTH_SHORT).show();
                         }

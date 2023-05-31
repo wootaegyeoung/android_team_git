@@ -44,35 +44,40 @@ import androidx.core.util.Pair;
 
 public class write extends AppCompatActivity {
 
+    // 파이어스토어 짝꿍
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     CollectionReference CW_collectionRef;
+
+
     Map<String, Object> write_content = new HashMap<>();
 
+    // 파베 스토리지 짝꿍
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance(); // 로그인정보 갖고오기
-
+    DatabaseReference mDatabaseRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
+        // 글 제목, 내용
         EditText et_title = findViewById(R.id.write_title);
         EditText et_content = findViewById(R.id.write_content);
 
+        // 버튼
         Button btn_finish = findViewById(R.id.btn_finish);
         ImageButton btn_camera = findViewById(R.id.btn_camera);
         ImageButton btn_time = findViewById(R.id.btn_time);
 
-        EditText et_total = findViewById(R.id.total_reward);
+        // 상금정보
         EditText et_first = findViewById(R.id.first_reward);
         EditText et_second = findViewById(R.id.second_reward);
         EditText et_third = findViewById(R.id.third_reward);
 
 
-        DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference(); // 리얼타임 디비에서 회원정보
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(); // 리얼타임 디비에서 회원정보
         String email = mAuth.getCurrentUser().getEmail();
         final String[] current_name = new String[1]; // 작성자 정보
         mDatabaseRef.child("UserAccount").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -100,13 +105,15 @@ public class write extends AppCompatActivity {
                 String str_content = et_content.getText().toString();
 
                 Map<String, String> rewardMap = new HashMap<>();
-                rewardMap.put("total", et_total.getText().toString());
                 rewardMap.put("1", et_first.getText().toString());
                 rewardMap.put("2", et_second.getText().toString());
                 rewardMap.put("3", et_third.getText().toString());
 
 
-
+                if(!write_content.containsKey("image")){
+                    Toast.makeText(getApplicationContext(), "사진을 선택해주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // 글 올린 시간
                 LocalDateTime currentTime = LocalDateTime.now();
@@ -119,11 +126,14 @@ public class write extends AppCompatActivity {
 
 
                 CW_collectionRef = db.collection("Contest_Writes");
+
                 // 파이어 스토어에 글 정보 등록
                 CW_collectionRef.add(write_content).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
+                        write_content.put("id", documentReference.getId());
+                        CW_collectionRef.document(documentReference.getId()).set(write_content);
                         finish();
                     }
                 });
@@ -140,7 +150,6 @@ public class write extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
-                btn_camera.setBackgroundResource(R.drawable.camera_fin);
             }
 
 
@@ -197,6 +206,7 @@ public class write extends AppCompatActivity {
                 });
     }
 
+    // 날짜 정하기
     private void showMenuDialog() {
         Dialog dialog = new Dialog(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
         dialog.setContentView(R.layout.timeset); // 메뉴 화면의 레이아웃 설정

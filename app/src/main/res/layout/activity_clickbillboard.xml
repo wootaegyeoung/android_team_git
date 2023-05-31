@@ -14,16 +14,20 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-
         android:background="@drawable/bg_gis_result_items_count">
 
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/profile" />
+
         <TextView
-            android:id="@+id/product_name"
+            android:id="@+id/cb_writer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="22dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="36dp"
             android:text="이름"
             android:textSize="50px" />
@@ -38,7 +42,7 @@
             android:src="@drawable/rank1" />
 
         <TextView
-            android:id = "@+id/cb_tv_topReward"
+            android:id="@+id/cb_tv_topReward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -49,25 +53,26 @@
             android:textSize="50px" />
 
         <ImageView
+            android:id = "@+id/cb_img"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="240dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="0dp"
-            android:layout_marginTop="73dp"
-            android:src="@drawable/free_image" />
+            android:layout_marginTop="73dp" />
 
         <TextView
-            android:layout_width="384dp"
+            android:id = "@+id/cb_content"
+            android:layout_width="394dp"
             android:layout_height="55dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="308dp"
+            android:layout_marginTop="320dp"
             android:text="글"
             android:textSize="50px" />
 
         <RelativeLayout
-            android:id = "@+id/cb_rewardInfo"
+            android:id="@+id/cb_rewardInfo"
             android:layout_width="125dp"
             android:layout_height="189dp"
             android:layout_alignParentLeft="true"
@@ -143,101 +148,41 @@
 
         </RelativeLayout>
 
-        <ScrollView
-            android:id="@+id/comment_scroll"
+        <LinearLayout
+            android:id="@+id/layout_comment"
             android:layout_width="394dp"
             android:layout_height="269dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="369dp"
-            android:background="@drawable/edge">
+            android:layout_marginTop="380dp"
+            android:background="@drawable/edge"
+            android:orientation="vertical">
 
-            <RelativeLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cb_recyclerView_comment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="-2dp"
-                android:background="@drawable/edge">
+                android:layout_height="match_parent" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="7dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/image_user_profile" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="43dp"
-                    android:layout_marginTop="11dp"
-                    android:text="작성자"
-                    android:textSize="50px" />
-
-                <ImageView
-                    android:layout_width="52dp"
-                    android:layout_height="38dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="275dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/like" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="45dp"
-                    android:layout_marginTop="37dp"
-                    android:text="asdfasdfasdfasdfasdf"
-                    android:textSize="50px" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="329dp"
-                    android:layout_marginTop="20dp"
-                    android:text="20"
-                    android:textColor="#FF0000"
-                    android:textSize="50px" />
-
-
-
-
-
-
-            </RelativeLayout>
-        </ScrollView>
+        </LinearLayout>
 
         <EditText
-            android:id="@+id/comment_edittext"
+            android:id="@+id/cb_comment_edittext"
             android:layout_width="330dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/comment_scroll"
+            android:layout_below="@+id/layout_comment"
             android:layout_marginTop="10dp"
             android:background="@drawable/roundmainui_comment"
             android:hint="댓글을 입력하세요"
             android:paddingLeft="20dp" />
 
         <ImageButton
-            android:id="@+id/btn_send"
+            android:id="@+id/cb_btn_send"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_below="@+id/comment_scroll"
+            android:layout_below="@+id/layout_comment"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/comment_edittext"
+            android:layout_toRightOf="@+id/cb_comment_edittext"
             android:background="@drawable/send_comment" />
 
 
