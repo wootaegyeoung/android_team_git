@@ -75,6 +75,7 @@ public class clickBillboard extends AppCompatActivity {
         // Intent에서 객체를 받음
         Intent intent = getIntent();
         Post post = intent.getParcelableExtra("selectedPost");
+        System.out.println(post.getTitle());
 
         // 받은 객체 사용
         String writer = post.getWriter();
@@ -108,7 +109,6 @@ public class clickBillboard extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -132,7 +132,7 @@ public class clickBillboard extends AppCompatActivity {
         // RecyclerView와 어댑터 초기화
         commentList = new ArrayList<>();
         recyclerView = findViewById(R.id.cb_recyclerView_comment);
-        CommentAdapter adapter = new CommentAdapter(commentList);
+        commentAdapter = new CommentAdapter(commentList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager((Context) this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
@@ -177,8 +177,8 @@ public class clickBillboard extends AppCompatActivity {
                 if (newCommentList != null) {
                     commentList.clear(); // 기존 데이터를 모두 제거
                     commentList.addAll(newCommentList); // 새로운 데이터로 업데이트
-                    adapter.notifyDataSetChanged(); // 어댑터에 변경 내용 반영
-                    recyclerView.setAdapter(adapter);
+                    commentAdapter.notifyDataSetChanged(); // 어댑터에 변경 내용 반영
+                    recyclerView.setAdapter(commentAdapter);
                 }
             }
         });
