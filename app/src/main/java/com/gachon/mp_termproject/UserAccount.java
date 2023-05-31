@@ -49,5 +49,12 @@ public class UserAccount {
         this.phone = phone;
     }
     private String phone;
+    public int getReward(){
+        return reward;
+    }
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
+    private int reward;
 
 }
