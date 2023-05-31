@@ -70,7 +70,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                                             int indexToChange = index; // 변경할 값의 인덱스
                                             Comment newComment = comment; // 변경할 새로운 값
 
-                                            arrayField.set(indexToChange, comment); // 특정 인덱스의 값을 변경
+                                            arrayField.set(indexToChange, newComment); // 특정 인덱스의 값을 변경
 
                                             Map<String, Object> updateData = new HashMap<>();
                                             updateData.put("댓글", arrayField); // 변경된 배열 필드를 업데이트할 데이터에 추가
