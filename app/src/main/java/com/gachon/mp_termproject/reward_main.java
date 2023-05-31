@@ -118,7 +118,7 @@ public class reward_main extends AppCompatActivity {
             }
         });
 
-        // 리사이클러 클릭이벤트
+        // 리사이클러뷰 클릭이벤트
         postAdapter.setOnItemClickListener(new PostAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Post post) {

@@ -210,7 +210,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight = "30dp"
+                android:layout_marginRight="30dp"
                 android:text="진행중인 공모전"
                 android:textColor="#000000"
                 android:textSize="20dp"
@@ -222,89 +222,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <!--공모전 글이 들어갈 곳-->
-            <ScrollView
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/progress_contest_recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id = "@+id/layout_contest_frame"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <!--공모전 글 레이아웃-->
-                    <LinearLayout
-                        android:id = "@+id/layout_contest"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <!--프사/이름-->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <!--프사-->
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/profile_image"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginTop="8dp"
-                                android:src="@drawable/profile_click"
-                                app:civ_border_color="#000000"
-                                app:civ_border_overlay="true"
-                                app:civ_border_width="1dp" />
-                            <!--사용자 닉네임-->
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="7dp"
-                                android:text="사용자 닉네임"
-                                android:textColor="#000000"
-                                android:textSize="15dp"
-                                tools:ignore="TextSizeCheck" />
-                        </LinearLayout>
-                        <!--사진-->
-                        <!--글-->
-                        <ImageView
-                            android:id="@+id/contest_image"
-                            android:layout_width="match_parent"
-                            android:layout_height="250dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/sample_image" />
-
-                        <TextView
-                            android:id="@+id/contest_content"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="3"
-                            android:paddingHorizontal="10dp"
-                            android:text="@string/sample_text"
-                            android:textColor="#000000" />
-
-                        <TextView
-                            android:id="@+id/view_more"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingHorizontal="10dp"
-                            android:text="더보기" />
-
-                        <TextView
-                            android:id="@+id/view_less"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingHorizontal="10dp"
-                            android:text="줄이기"
-                            android:visibility="gone" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="#88000000" />
-                    </LinearLayout>
-                </LinearLayout>
-            </ScrollView>
+                android:layout_height="match_parent" />
         </LinearLayout>
 
     </LinearLayout>
