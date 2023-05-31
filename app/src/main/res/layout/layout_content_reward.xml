@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
 
     <View
@@ -10,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="322dp"
         android:layout_marginTop="4dp"
-        android:background="#cfcfcf"/>
+        android:background="#EDEDED" />
 
     <!--  프사  -->
 
@@ -19,36 +18,36 @@
         android:layout_width="29.75dp"
         android:layout_height="30dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="12dp"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="12dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/profile"
-        />
+        android:background="@drawable/profile" />
 
     <TextView
-        android:id = "@+id/tv_writer"
+        android:id="@+id/tv_writer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="이름"
-        android:layout_toEndOf="@+id/profile_img"
         android:layout_alignTop="@id/profile_img"
         android:layout_alignBottom="@id/profile_img"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="3dp"
-        android:layout_marginLeft="8dp"></TextView>
+        android:layout_toEndOf="@+id/profile_img"
+        android:text="이름"
+        android:textColor="@color/black"></TextView>
+
     <ImageView
         android:id="@+id/reward"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:background="@drawable/rank1"
         android:layout_alignParentRight="true"
         android:layout_marginTop="15dp"
         android:layout_marginRight="12dp"
+        android:background="@drawable/rank1"
 
         ></ImageView>
 
     <TextView
-        android:id = "@+id/tv_reward"
+        android:id="@+id/tv_reward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -63,19 +62,16 @@
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_below="@+id/profile_img"
-        android:layout_alignStart="@id/profile_img"
-
-        android:layout_marginStart="-12dp"
         android:layout_marginTop="7dp"
         android:background="@color/white"></ImageView>
 
     <TextView
-        android:id = "@+id/tv_content"
+        android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:textColor="@color/black"
-        android:text="글글글글글 .. 글글글글 글 내용 내용 내용"
         android:layout_below="@+id/image"
+        android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
-        android:layout_marginLeft="2dp"></TextView>
+        android:text="글글글글글 .. 글글글글 글 내용 내용 내용"
+        android:textColor="#000000"></TextView>
 </RelativeLayout>

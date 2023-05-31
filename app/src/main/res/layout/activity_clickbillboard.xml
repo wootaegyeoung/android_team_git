@@ -19,7 +19,7 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/profile" />
 
@@ -27,7 +27,7 @@
             android:id="@+id/cb_writer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="36dp"
             android:text="이름"
             android:textSize="50px" />
@@ -53,7 +53,7 @@
             android:textSize="50px" />
 
         <ImageView
-            android:id = "@+id/cb_img"
+            android:id="@+id/cb_img"
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:layout_alignParentLeft="true"
@@ -62,13 +62,14 @@
             android:layout_marginTop="73dp" />
 
         <TextView
-            android:id = "@+id/cb_content"
+            android:id="@+id/cb_content"
             android:layout_width="394dp"
             android:layout_height="55dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="320dp"
             android:text="글"
+            android:textColor="#000000"
             android:textSize="50px" />
 
         <RelativeLayout
@@ -85,7 +86,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
                 android:text="상금정보"
+                android:textColor="#000000"
                 android:textSize="20dp" />
 
             <TextView
@@ -94,8 +97,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="47dp"
                 android:text="30,000"
                 android:textSize="20dp" />
 
@@ -105,9 +108,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="96dp"
                 android:text="20,000"
                 android:textSize="20dp" />
 
@@ -117,9 +119,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="148dp"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="147dp"
                 android:text="10,000"
                 android:textSize="20dp" />
 
