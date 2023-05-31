@@ -79,6 +79,14 @@
 
             <!--            리니어 레이아웃 버티컬-->
 
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
 
 
         </LinearLayout>

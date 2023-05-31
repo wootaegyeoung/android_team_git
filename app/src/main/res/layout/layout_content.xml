@@ -24,7 +24,7 @@
         android:layout_marginLeft="12dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="12dp"
-        android:background="@drawable/profile"
+        android:background="@drawable/ic_android_black_24dp"
         />
 
     <TextView

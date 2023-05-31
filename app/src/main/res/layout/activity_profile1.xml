@@ -60,11 +60,10 @@
     <!-- Woo Tae Gyeong -->
 
     <TextView
-        android:id="@+id/woo_tae_gye"
+        android:id="@+id/user_name"
         android:layout_width="157dp"
         android:layout_height="24dp"
         android:layout_marginTop="56dp"
-        android:text="@string/woo_tae_gye"
         android:textAppearance="@style/woo_tae_gye"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.838"
@@ -84,11 +83,10 @@
 
 
     <TextView
-        android:id="@+id/some_id1"
+        android:id="@+id/phone_number"
         android:layout_width="99dp"
         android:layout_height="27dp"
         android:layout_marginTop="104dp"
-        android:text="@string/some_id1"
         android:textAppearance="@style/some_id1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.613"
@@ -96,11 +94,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/some_id2"
+        android:id="@+id/mail"
         android:layout_width="137dp"
+        android:text="123456789"
         android:layout_height="26dp"
         android:layout_marginTop="104dp"
-        android:text="@string/some_id2"
         android:textAppearance="@style/some_id1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.996"
