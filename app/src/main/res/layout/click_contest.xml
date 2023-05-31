@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image"
+    android:visibility="visible"
+    tools:context=".MainActivity">
+
+
+    <ImageButton
+        android:id="@+id/contest_board"
+        android:layout_width="380dp"
+        android:layout_height="260dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:background="#00000000"
+        android:src="@drawable/contest1" />
+
+    <ImageButton
+        android:id="@+id/contest_board2"
+        android:layout_width="380dp"
+        android:layout_height="260dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="271dp"
+        android:background="#00000000"
+        android:src="@drawable/contest2" />
+
+
+    <!--
+    Font family: Roboto
+    Line height: 82sp
+    -->
+
+    <!-- styles.xml -->
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+

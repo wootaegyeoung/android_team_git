@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,14 +12,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="644dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
 
         android:background="@drawable/bg_gis_result_items_count">
-
         <TextView
-            android:id="@+id/product_name"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -27,18 +27,30 @@
             android:layout_marginTop="36dp"
             android:text="이름"
             android:textSize="50px" />
-
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="29dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="285dp"
-            android:layout_marginTop="35dp"
-            android:src="@drawable/rank1" />
+
+            android:layout_marginLeft="273dp"
+
+            android:layout_marginTop="32dp"
+            android:src="@drawable/medal" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+
+            android:layout_alignParentTop="true"
+
+            android:layout_marginLeft="273dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/medal" />
 
         <TextView
-            android:id = "@+id/cb_tv_topReward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -47,6 +59,8 @@
             android:layout_marginTop="36dp"
             android:text="30,000"
             android:textSize="50px" />
+
+
 
         <ImageView
             android:layout_width="match_parent"
@@ -58,16 +72,16 @@
             android:src="@drawable/free_image" />
 
         <TextView
-            android:layout_width="384dp"
-            android:layout_height="55dp"
+            android:layout_width="394dp"
+            android:layout_height="66dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="308dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="309dp"
             android:text="글"
             android:textSize="50px" />
 
         <RelativeLayout
-            android:id = "@+id/cb_rewardInfo"
             android:layout_width="125dp"
             android:layout_height="189dp"
             android:layout_alignParentLeft="true"
@@ -77,80 +91,87 @@
             android:background="#D0D0FF">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="상금정보"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/cb_tv_rank1"
+                android:id="@+id/product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="11dp"
+                android:text="상금정보"
+                android:textSize="40px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+
+                android:layout_marginLeft="44dp"
                 android:layout_marginTop="48dp"
                 android:text="30,000"
-                android:textSize="20dp" />
+                android:textSize="40px" />
 
             <TextView
-                android:id="@+id/cb_tv_rank2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
 
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="44dp"
                 android:layout_marginTop="100dp"
                 android:text="20,000"
-                android:textSize="20dp" />
+                android:textSize="40px" />
 
             <TextView
-                android:id="@+id/cb_tv_rank3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
 
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="45dp"
                 android:layout_marginTop="148dp"
                 android:text="10,000"
-                android:textSize="20dp" />
+                android:textSize="40px" />
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="45dp"
-                android:src="@drawable/rank1" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="95dp"
-                android:src="@drawable/rank2" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="145dp"
-                android:src="@drawable/rank3" />
+
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="43dp"
+                android:src="@drawable/medal" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="94dp"
+                android:src="@drawable/medal2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="146dp"
+                android:src="@drawable/medal3" />
 
         </RelativeLayout>
 
-        <ScrollView
-            android:id="@+id/comment_scroll"
+        <RelativeLayout
             android:layout_width="394dp"
-            android:layout_height="269dp"
+            android:layout_height="252dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+
             android:layout_marginLeft="0dp"
-            android:layout_marginTop="369dp"
+            android:layout_marginTop="387dp"
             android:background="@drawable/edge">
 
             <RelativeLayout
@@ -182,14 +203,13 @@
                     android:textSize="50px" />
 
                 <ImageView
-                    android:layout_width="52dp"
-                    android:layout_height="38dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="275dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/like" />
-
+                    android:layout_marginLeft="299dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/like_it" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -206,42 +226,17 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="329dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="331dp"
+                    android:layout_marginTop="13dp"
                     android:text="20"
                     android:textColor="#FF0000"
                     android:textSize="50px" />
 
 
-
-
-
-
             </RelativeLayout>
-        </ScrollView>
-
-        <EditText
-            android:id="@+id/comment_edittext"
-            android:layout_width="330dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/comment_scroll"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/roundmainui_comment"
-            android:hint="댓글을 입력하세요"
-            android:paddingLeft="20dp" />
-
-        <ImageButton
-            android:id="@+id/btn_send"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_below="@+id/comment_scroll"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/comment_edittext"
-            android:background="@drawable/send_comment" />
-
-
+        </RelativeLayout>
     </RelativeLayout>
+
 
 
     <!--

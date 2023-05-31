@@ -66,9 +66,6 @@ public class signup extends AppCompatActivity {
                 String strName = edit_name.getText().toString();
                 String strPhone = edit_phone.getText().toString();
 
-
-
-
                 // null 처리
 
                 if(strName.equals("")) {
@@ -107,9 +104,8 @@ public class signup extends AppCompatActivity {
                                         account.setName(strName);
                                         account.setPhone(strPhone);
 
-
                                         mDatabaseRef.child("UserAccount").child(strName).setValue(account);
-                                        mDatabaseRef.child("UserAccount").child(strName).child("reward").setValue(0); // 상금정보 업데이트
+                                        mDatabaseRef.child("UserAccount").child(strName).child("reward").setValue(0);
                                         Toast.makeText(signup.this, "회원가입에 성공했습니다.", Toast.LENGTH_SHORT).show();
                                     } else{
                                         Toast.makeText(signup.this, "회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show();

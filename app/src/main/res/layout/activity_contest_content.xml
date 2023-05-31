@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@drawable/board_background_img">
+    android:background="@drawable/board_background_img"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,7 +38,8 @@
             android:layout_marginTop="60dp"
             android:gravity="center_vertical"
             android:textColor="@color/black"
-            android:text="공모전 게시판" />
+            android:text="자유 게시판" />
+
 
 
     </RelativeLayout>
@@ -49,7 +51,6 @@
         android:layout_toLeftOf="@+id/write_btn"
         android:background="@drawable/search_btn"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"/>
-
     <Button
         android:id="@+id/write_btn"
         android:layout_width="35dp"
@@ -58,7 +59,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginRight="12dp"
         android:background="@drawable/write_post_btn"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"/>
+        />
 
 
     <View
@@ -78,17 +79,14 @@
 
             <!--            리니어 레이아웃 버티컬-->
 
-            <include layout="@layout/layout_content_reward" />
-            <include layout="@layout/layout_content_reward" />
-            <include layout="@layout/layout_content_reward" />
-            <include layout="@layout/layout_content_reward" />
-            <include layout="@layout/layout_content_reward" />
-            <include layout="@layout/layout_content_reward" />
-            <include layout="@layout/layout_content_reward" />
-            <include layout="@layout/layout_content_reward" />
-
-
-
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
+            <include layout="@layout/layout_content" />
 
 
         </LinearLayout>

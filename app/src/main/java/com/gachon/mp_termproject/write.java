@@ -1,6 +1,5 @@
 package com.gachon.mp_termproject;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,12 +17,6 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -40,63 +33,34 @@ import java.util.List;
 import java.util.Map;
 import java.time.LocalDateTime;
 import java.util.UUID;
-import androidx.core.util.Pair;
+
 
 public class write extends AppCompatActivity {
 
-    // 파이어스토어 짝꿍
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     CollectionReference CW_collectionRef;
-
-
     Map<String, Object> write_content = new HashMap<>();
 
-    // 파베 스토리지 짝꿍
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
 
-    FirebaseAuth mAuth = FirebaseAuth.getInstance(); // 로그인정보 갖고오기
-    DatabaseReference mDatabaseRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
-        // 글 제목, 내용
         EditText et_title = findViewById(R.id.write_title);
         EditText et_content = findViewById(R.id.write_content);
 
-        // 버튼
         Button btn_finish = findViewById(R.id.btn_finish);
         ImageButton btn_camera = findViewById(R.id.btn_camera);
         ImageButton btn_time = findViewById(R.id.btn_time);
 
-        // 상금정보
-        EditText et_first = findViewById(R.id.first_reward);
-        EditText et_second = findViewById(R.id.second_reward);
-        EditText et_third = findViewById(R.id.third_reward);
 
+        CW_collectionRef = db.collection("Contest_Writes");
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(); // 리얼타임 디비에서 회원정보
-        String email = mAuth.getCurrentUser().getEmail();
-        final String[] current_name = new String[1]; // 작성자 정보
-        mDatabaseRef.child("UserAccount").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                    // 각 child 데이터에 대한 처리
-                    // 특정 데이터를 찾는 조건을 확인하고 원하는 작업 수행
-                    if (childSnapshot.exists() && childSnapshot.child("emailId").getValue().equals(email)) {
-                        current_name[0] = childSnapshot.child("name").getValue().toString(); // 현재 사용자의 닉네임 받아오기
-                        write_content.put("작성자", current_name[0]);
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
         // 글 작성 완료 버튼 이벤트
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,40 +68,21 @@ public class write extends AppCompatActivity {
                 String str_title = et_title.getText().toString();
                 String str_content = et_content.getText().toString();
 
-                Map<String, String> rewardMap = new HashMap<>();
-                rewardMap.put("1", et_first.getText().toString());
-                rewardMap.put("2", et_second.getText().toString());
-                rewardMap.put("3", et_third.getText().toString());
-
-
-                if(!write_content.containsKey("image")){
-                    Toast.makeText(getApplicationContext(), "사진을 선택해주세요", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 // 글 올린 시간
                 LocalDateTime currentTime = LocalDateTime.now();
-                String ct = currentTime.getYear() + "-" + currentTime.getMonthValue() + "-" + currentTime.getDayOfMonth() + " " + currentTime.getHour() + ":" + currentTime.getMinute() + ":" + currentTime.getSecond();
+                String ct = currentTime.getYear() + "-" + currentTime.getMonth() + "-" + currentTime.getDayOfMonth() + " " + currentTime.getHour() + ":" + currentTime.getMinute() + ":" + currentTime.getSecond();
 
                 write_content.put("제목", str_title);
                 write_content.put("내용", str_content);
                 write_content.put("시간", ct);
-                write_content.put("상금", rewardMap);
-
-
-                CW_collectionRef = db.collection("Contest_Writes");
 
                 // 파이어 스토어에 글 정보 등록
                 CW_collectionRef.add(write_content).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
-                        write_content.put("id", documentReference.getId());
-                        CW_collectionRef.document(documentReference.getId()).set(write_content);
-                        finish();
+                        Toast.makeText(getApplicationContext(), "저장 성공", Toast.LENGTH_SHORT).show();
                     }
                 });
-
 
             }
         });
@@ -161,6 +106,27 @@ public class write extends AppCompatActivity {
                 showMenuDialog();
             }
         });
+
+        // 데이터의 추가를 감지하는 리스너(-->> 가장 최근에 올라간 글의 정보를 갖고 오게 설정)
+        CW_collectionRef.orderBy("시간", Query.Direction.DESCENDING)
+                .limit(1)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot snapshot, @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            // 에러 처리
+                            return;
+                        }
+
+                        if (snapshot != null && !snapshot.isEmpty()) {
+                            // 마지막에 추가된 문서 가져오기
+                            DocumentSnapshot lastDocument = snapshot.getDocuments().get(0);
+                            String str_title = lastDocument.getString("제목");
+                            String str_content = lastDocument.getString("내용");
+
+                        }
+                    }
+                });
 
 
     }
@@ -195,7 +161,7 @@ public class write extends AppCompatActivity {
                     // 업로드된 이미지의 다운로드 URL 가져오기
                     imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                         String downloadUrl = uri.toString();
-                        write_content.put("image", filename);
+                        write_content.put("image", downloadUrl);
                         // 업로드된 이미지의 다운로드 URL을 사용하여 원하는 작업 수행
                         // 예: 데이터베이스에 URL 저장, 이미지를 표시하는 등
                     });
@@ -206,15 +172,16 @@ public class write extends AppCompatActivity {
                 });
     }
 
-    // 날짜 정하기
     private void showMenuDialog() {
-        Dialog dialog = new Dialog(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
+        Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.timeset); // 메뉴 화면의 레이아웃 설정
 
         // 메뉴 화면에서 필요한 뷰 요소들 가져오기
         DatePicker startDatePicker = dialog.findViewById(R.id.startDatePicker);
+        TimePicker startTimePicker = dialog.findViewById(R.id.startTimePicker);
         DatePicker endDatePicker = dialog.findViewById(R.id.endDatePicker);
-        Button confirmButton = dialog.findViewById(R.id.btn_set);
+        TimePicker endTimePicker = dialog.findViewById(R.id.endTimePicker);
+        Button confirmButton = dialog.findViewById(R.id.confirmButton);
 
         // 확인 버튼 클릭 이벤트 처리
         confirmButton.setOnClickListener(v -> {
@@ -222,15 +189,17 @@ public class write extends AppCompatActivity {
             int startYear = startDatePicker.getYear();
             int startMonth = startDatePicker.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
             int startDay = startDatePicker.getDayOfMonth();
-            String startDate = Integer.toString(startYear) + "-" + Integer.toString(startMonth) + "-" + Integer.toString(startDay);
-            write_content.put("시작날짜", startDate);
+            int startHour = startTimePicker.getHour();
+            int startMinute = startTimePicker.getMinute();
 
             int endYear = endDatePicker.getYear();
-            int endMonth = endDatePicker.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
+            int endMonth = endDatePicker.getMonth() + 1;
             int endDay = endDatePicker.getDayOfMonth();
-            String endDate = Integer.toString(endYear) + "-" + Integer.toString(endMonth) + "-" + Integer.toString(endDay);
-            write_content.put("종료날짜", endDate);
+            int endHour = endTimePicker.getHour();
+            int endMinute = endTimePicker.getMinute();
 
+            // 선택된 날짜와 시간 활용 예시: Firebase Firestore에 저장 등
+            // ...
 
             // 팝업 창 닫기
             dialog.dismiss();

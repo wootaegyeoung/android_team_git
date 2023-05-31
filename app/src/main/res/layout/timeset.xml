@@ -1,57 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity = "center">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity = "center"
-            android:text="시작 날짜"
-            android:textSize = "25dp"/>
+            android:text="시작 날짜와 시간" />
 
         <DatePicker
             android:id="@+id/startDatePicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:datePickerMode="spinner"
-            android:calendarViewShown="false"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity = "center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity = "center"
-            android:text="종료 날짜"
-            android:textSize = "25dp"/>
 
-        <DatePicker
-            android:id="@+id/endDatePicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:datePickerMode="spinner"
-            android:calendarViewShown="false"/>
-    </LinearLayout>
-    <Button
-        android:id="@+id/btn_set"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background = "@android:color/transparent"
-        android:layout_gravity = "center"
-        android:text= "설정"
-        android:textColor = "#000000"
-        android:textStyle= "bold"/>
 
-</LinearLayout>
+</FrameLayout>
