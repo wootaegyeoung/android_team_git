@@ -66,6 +66,7 @@ public class login extends AppCompatActivity {
                     return;
                 }
                 String finalStrEmail = strEmail;
+
                 mFirebaseAuth.signInWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(login.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -80,21 +81,26 @@ public class login extends AppCompatActivity {
                             userRef.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    boolean foundUser = false;
                                     if (dataSnapshot.exists()) {
                                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                                             UserAccount userAccount = snapshot.getValue(UserAccount.class);
-                                            if (userAccount != null && userAccount.getEmailId().equals(finalStrEmail)) {
+                                            if (userAccount != null && userAccount.getEmailId() != null && userAccount.getEmailId().equals(finalStrEmail)) {
                                                 String name = userAccount.getName();
                                                 String phone = userAccount.getPhone();
-                                                int reward=userAccount.getReward();
+                                                int reward = userAccount.getReward();
 
                                                 intent.putExtra("name", name);
                                                 intent.putExtra("phone", phone);
                                                 intent.putExtra("reward", reward);
                                                 Log.d("Login", "Name: " + name + ", Phone: " + phone);
+                                                foundUser = true;
                                                 break;
                                             }
                                         }
+                                    }
+                                    if (!foundUser) {
+                                        // 사용자 정보가 없을 때의 처리
                                     }
                                     startActivity(intent);
                                 }
@@ -109,6 +115,7 @@ public class login extends AppCompatActivity {
                         }
                     }
                 });
+
             }
         });
     }

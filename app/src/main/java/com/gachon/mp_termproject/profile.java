@@ -44,21 +44,27 @@ public class profile extends Fragment {
         String userEmail = intent.getStringExtra("email");
         String userName = intent.getStringExtra("name");
         String phoneNum=intent.getStringExtra("phone");
-        int reward=intent.getIntExtra("reward", 13);
+        int reward=intent.getIntExtra("reward", 0);
 
         emailTextView = view.findViewById(R.id.mail);
         userNameTextView=view.findViewById(R.id.user_name);
         phoneNumTextView=view.findViewById(R.id.phone_number);
         rewardTextView=view.findViewById(R.id.p);
 
-
         readUserInfo(userEmail, userName, phoneNum, reward);
+
 
 
         profile_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), myprofile.class);
+                Intent i;
+                i= new Intent(getActivity(), myprofile.class);
+                i.putExtra("email", userEmail);
+                i.putExtra("name", userName);
+                i.putExtra("phone", phoneNum);
+                i.putExtra("reward", reward);
+                startActivity(i);
                 startActivity(i);
             }
         });
@@ -76,6 +82,13 @@ public class profile extends Fragment {
         phoneNumTextView.setText(phone);
         userNameTextView.setText(name);
         rewardTextView.setText(String.valueOf(reward));
+
+
+
+
+
+
+
     }
 
 }

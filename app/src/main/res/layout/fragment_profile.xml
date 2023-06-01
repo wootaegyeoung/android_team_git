@@ -45,11 +45,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/woo_tae_gye"
+        android:id="@+id/my_name"
         android:layout_width="157dp"
         android:layout_height="24dp"
         android:layout_marginTop="80dp"
-        android:text="@string/woo_tae_gye"
         android:textAppearance="@style/woo_tae_gye2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.685"
@@ -57,12 +56,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/p"
+        android:id="@+id/my_money"
         android:layout_width="84dp"
         android:layout_height="24dp"
-        android:layout_marginTop="128dp"
-        android:text="@string/p"
-        android:textAppearance="@style/p_2"
+        android:layout_marginTop="128dp" android:textAppearance="@style/p_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.804"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +101,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/change_name"
         android:layout_width="100dp"
         android:layout_height="24dp"
         android:layout_marginTop="248dp"
@@ -129,6 +127,7 @@
         android:background="#00ff0000"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/change_pass"
         android:layout_width="100dp"
         android:layout_height="24dp"
         android:layout_marginTop="284dp"
