@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
 
 
-
     <ImageView
         android:id="@+id/group_74"
         android:layout_width="90dp"
@@ -47,7 +46,7 @@
     <TextView
         android:id="@+id/my_name"
         android:layout_width="157dp"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:textAppearance="@style/woo_tae_gye2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,8 +57,9 @@
     <TextView
         android:id="@+id/my_money"
         android:layout_width="84dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="128dp" android:textAppearance="@style/p_2"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:textAppearance="@style/p_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.804"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
     <TextView
         android:id="@+id/some_id"
         android:layout_width="80dp"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:text="@string/some_id"
         android:textAppearance="@style/some_id_2"
@@ -90,7 +90,7 @@
     <!-- 프로필 수정 -->
     <TextView
         android:id="@+id/profile_edit"
-        android:layout_width="123dp"
+        android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginTop="204dp"
         android:text="@string/profile_edit"
@@ -102,33 +102,32 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/change_name"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_marginTop="248dp"
         android:background="#00ff0000"
         android:text="닉네임 변경"
         android:textAppearance="@style/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintHorizontal_bias="0.150"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_marginTop="320dp"
-
+        android:background="#00ff0000"
         android:text="프로필사진 변경"
         android:textAppearance="@style/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="#00ff0000"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/change_pass"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_marginTop="284dp"
         android:background="#00ff0000"
@@ -197,7 +196,7 @@
 
     <TextView
 
-        android:layout_width="119dp"
+        android:layout_width="wrap_content"
         android:layout_height="33dp"
         android:layout_marginTop="552dp"
         android:text="상금 관리"
@@ -208,26 +207,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="131dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginTop="592dp"
         android:background="#00ff0000"
         android:text="연결 계좌 관리"
         android:textAppearance="@style/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.182"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="152dp"
+        android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginTop="624dp"
         android:background="#00ff0000"
         android:text="내가 획득한 상금 보기"
         android:textAppearance="@style/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintHorizontal_bias="0.210"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
