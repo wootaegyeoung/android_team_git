@@ -33,12 +33,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="어제의 인기댓글"
+                android:text="인기 공모전"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold" />
         </LinearLayout>
-        <!--1등 댓글-->
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,39 +53,30 @@
                 android:background="@drawable/rank1" />
 
             <Button
-                android:id="@+id/comment_rank1"
+                android:id="@+id/rank1_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/rank1_image"
                 android:background="#00000000"
                 android:letterSpacing="0"
-                android:text="1등 댓글"
+                android:text="1등 글제목"
                 android:textColor="#000000"
                 android:textSize="18dp" />
 
-            <ImageView
-                android:id="@+id/like_image1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@+id/num_like1"
-                android:background="@drawable/like" />
-
             <TextView
-                android:id="@+id/num_like1"
+                android:id="@+id/rank1_com_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="15"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="25"
                 android:textColor="#FF0000"
-                android:textStyle="bold" />
+                android:textSize="20dp" />
 
         </RelativeLayout>
-        <!--2등 댓글-->
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,38 +91,30 @@
                 android:background="@drawable/rank2" />
 
             <Button
-                android:id="@+id/comment_rank2"
+                android:id="@+id/rank2_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/rank2_image"
                 android:background="#00000000"
                 android:letterSpacing="0"
-                android:text="2등 댓글"
+                android:text="2등 글제목"
                 android:textColor="#000000"
                 android:textSize="18dp" />
 
-            <ImageView
-                android:id="@+id/like_image2"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@+id/num_like2"
-                android:background="@drawable/like" />
-
             <TextView
-                android:id="@+id/num_like2"
+                android:id="@+id/rank2_com_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="15"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="25"
                 android:textColor="#FF0000"
-                android:textStyle="bold" />
+                android:textSize="20dp" />
+
         </RelativeLayout>
-        <!--3등 댓글-->
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,7 +129,7 @@
                 android:background="@drawable/rank3" />
 
             <Button
-                android:id="@+id/comment_rank3"
+                android:id="@+id/rank3_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -154,29 +137,20 @@
                 android:layout_toRightOf="@+id/rank3_image"
                 android:background="#00000000"
                 android:letterSpacing="0"
-                android:text="3등 댓글"
+                android:text="3등 글제목"
                 android:textColor="#000000"
                 android:textSize="18dp" />
 
-            <ImageView
-                android:id="@+id/like_image3"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@+id/num_like3"
-                android:background="@drawable/like" />
-
             <TextView
-                android:id="@+id/num_like3"
+                android:id="@+id/rank3_com_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="15"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="25"
                 android:textColor="#FF0000"
-                android:textStyle="bold" />
+                android:textSize="20dp" />
         </RelativeLayout>
 
 
