@@ -218,7 +218,7 @@ public class clickBillboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String comment = et_comment.getText().toString();
-                Comment newComment = new Comment(current_name[0], comment, post_id);
+                Comment newComment = new Comment(current_name[0], comment, post_id, 2);
                 CW_collectionRef = db.collection("Contest_Writes");
                 CW_collectionRef.document(post_id).update("댓글", FieldValue.arrayUnion(newComment))
                         .addOnSuccessListener(aVoid -> {

@@ -30,6 +30,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id = "@+id/btn_finish_free"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -42,6 +43,7 @@
             android:textSize="50px" />
 
         <EditText
+            android:id = "@+id/et_title_free"
             android:layout_width="394dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -51,7 +53,7 @@
             android:hint="제목" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/et_content_free"
             android:layout_width="394dp"
             android:layout_height="159dp"
             android:layout_alignParentLeft="true"
@@ -63,6 +65,7 @@
             android:hint=" 내용을 입력해주세요" />
 
         <ImageButton
+            android:id="@+id/btn_camera_free"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"

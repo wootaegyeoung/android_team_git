@@ -114,7 +114,7 @@ public class login extends AppCompatActivity {
                                 }
                             });
                         } else {
-                            Toast.makeText(login.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                            customToastView("로그인 실패");
                         }
                     }
                 });

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_gis_result_items_count">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/profile" />
+
+        <TextView
+            android:id="@+id/cb_writer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="36dp"
+            android:text="이름"
+            android:textColor = "#000000"
+            android:textSize="50px" />
+
+
+
+
+
+
+        <ImageView
+            android:id="@+id/cb_img"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="73dp" />
+
+        <TextView
+            android:id="@+id/cb_content"
+            android:layout_width="394dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="320dp"
+            android:text="글"
+            android:textColor="#000000"
+            android:textSize="50px" />
+
+
+
+        <LinearLayout
+            android:id="@+id/layout_comment"
+            android:layout_width="394dp"
+            android:layout_height="269dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="380dp"
+            android:background="@drawable/edge"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cb_recyclerView_comment_free"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/cb_comment_edittext"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/layout_comment"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundmainui_comment"
+            android:hint="댓글을 입력하세요"
+            android:paddingLeft="20dp" />
+
+        <ImageButton
+            android:id="@+id/cb_btn_send"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/layout_comment"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/cb_comment_edittext"
+            android:background="@drawable/send_comment" />
+
+
+    </RelativeLayout>
+
+
+    <!--
+    Font family: Roboto
+    Line height: 82sp
+    -->
+
+    <!-- styles.xml -->
+
+
+</RelativeLayout>

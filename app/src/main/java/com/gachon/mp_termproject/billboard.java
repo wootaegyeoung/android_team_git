@@ -1,16 +1,13 @@
 package com.gachon.mp_termproject;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class billboard extends Fragment {
@@ -24,7 +21,7 @@ public class billboard extends Fragment {
         free_contest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), contest_main.class);
+                Intent i = new Intent(getActivity(), free_main.class);
                 startActivity(i);
             }
         });

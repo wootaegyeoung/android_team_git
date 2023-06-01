@@ -58,8 +58,7 @@ public class reward_main extends AppCompatActivity {
         CW_collectionRef = db.collection("Contest_Writes");
 
         // 데이터 변경을 실시간으로 감지하는 addSnapshotListener 사용
-        CW_collectionRef.orderBy("시간", Query.Direction.DESCENDING)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+        CW_collectionRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(QuerySnapshot value, FirebaseFirestoreException error) {
                         if (error != null) {

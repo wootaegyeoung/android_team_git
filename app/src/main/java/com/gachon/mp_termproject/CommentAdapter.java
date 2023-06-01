@@ -43,7 +43,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             ib_like = itemView.findViewById(R.id.btn_like);
         }
 
-        public void bind(Comment comment, int index, int flag ) {
+        public void bind(Comment comment, int index, int flag, int commentType) {
             cm_writer.setText(comment.getWriter());
             cm_content.setText(comment.getComment_content());
             cm_cnt_recommend.setText(Integer.toString(comment.getCnt_recommend()));
@@ -61,8 +61,14 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
 
                     // 갱신된 추천 수를 디비에 갱신하기
+                    String collection = "";
+
+                    if(commentType == 1)
+                        collection = "Free_Writes";
+                    else if(commentType == 2)
+                        collection = "Contest_Writes";
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    DocumentReference documentRef = FirebaseFirestore.getInstance().collection("Contest_Writes").document(comment.getParentPostId());
+                    DocumentReference documentRef = FirebaseFirestore.getInstance().collection(collection).document(comment.getParentPostId());
 
                     documentRef.get()
                             .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -133,7 +139,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull CommentAdapter.ViewHolder holder, int position) {
         Comment comment = commentList.get(position);
-        holder.bind(comment, position, comment.getFlag());
+        holder.bind(comment, position, comment.getFlag(), comment.getCommentType());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
