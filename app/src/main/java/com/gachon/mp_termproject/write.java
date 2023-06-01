@@ -9,11 +9,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -40,6 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
 import androidx.core.util.Pair;
 
 public class write extends AppCompatActivity {
@@ -57,6 +62,7 @@ public class write extends AppCompatActivity {
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance(); // 로그인정보 갖고오기
     DatabaseReference mDatabaseRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +98,7 @@ public class write extends AppCompatActivity {
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -103,17 +110,44 @@ public class write extends AppCompatActivity {
             public void onClick(View v) {
                 String str_title = et_title.getText().toString();
                 String str_content = et_content.getText().toString();
+                String str_first = et_first.getText().toString();
+                String str_second = et_second.getText().toString();
+                String str_third = et_third.getText().toString();
 
                 Map<String, String> rewardMap = new HashMap<>();
+
+
+                // NULL 예외처리
+                if (str_title.equals("")) {
+                    customToastView("제목을 입력해주세요");
+                    return;
+                }
+                if (str_content.equals("")) {
+                    customToastView("내용을 입력해주세요");
+                    return;
+                }
+                if (!write_content.containsKey("image")) {
+                    customToastView("사진을 선택해주세요");
+                    return;
+                }
+                if (!write_content.containsKey("시작날짜")) {
+                    customToastView("공모전 기간을 선택해주세요");
+                    return;
+                }
+                if (!write_content.containsKey("종료날짜")) {
+                    customToastView("공모전 기간을 선택해주세요");
+                    return;
+                }
+                if (str_first.equals("") || str_second.equals("") || str_third.equals("")) {
+                    customToastView("상금정보를 입력해주세요");
+                    return;
+                }
+
+
                 rewardMap.put("1", et_first.getText().toString());
                 rewardMap.put("2", et_second.getText().toString());
                 rewardMap.put("3", et_third.getText().toString());
 
-
-                if(!write_content.containsKey("image")){
-                    Toast.makeText(getApplicationContext(), "사진을 선택해주세요", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
                 // 글 올린 시간
                 LocalDateTime currentTime = LocalDateTime.now();
@@ -124,14 +158,12 @@ public class write extends AppCompatActivity {
                 write_content.put("시간", ct);
                 write_content.put("상금", rewardMap);
 
-
                 CW_collectionRef = db.collection("Contest_Writes");
 
                 // 파이어 스토어에 글 정보 등록
                 CW_collectionRef.add(write_content).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
                         write_content.put("id", documentReference.getId());
                         CW_collectionRef.document(documentReference.getId()).set(write_content);
                         finish();
@@ -164,11 +196,12 @@ public class write extends AppCompatActivity {
 
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch(requestCode) {
+        switch (requestCode) {
             case 1:
                 if (resultCode == RESULT_OK) {
                     Uri uri = data.getData();
@@ -240,5 +273,17 @@ public class write extends AppCompatActivity {
         dialog.show();
     }
 
+    public void customToastView(String text) {
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.mytoast_board, (ViewGroup) findViewById(R.id.toast_layout_root));
+        TextView textView = layout.findViewById(R.id.textboard);
+        textView.setText(text);
+
+        Toast toastView = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
+        toastView.setGravity(Gravity.BOTTOM, 0, 0);
+        toastView.setView(layout);
+        toastView.show();
+    }
 }
 

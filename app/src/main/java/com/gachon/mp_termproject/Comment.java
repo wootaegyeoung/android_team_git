@@ -11,48 +11,61 @@ public class Comment implements Parcelable {
     private String comment_content; // 댓글 내용
     private int cnt_recommend; // 추천 수
     private String parentPostId; // 댓글이 속한 글의 id
-    private String comment_id;
+    private int flag = 0;
 
 
-    public Comment(){
+    public Comment() {
         this.parentPostId = "";
         this.writer = "";
         this.comment_content = "";
         this.cnt_recommend = 0;
     }
-    public Comment(String writer, String comment, String parentPostId){
+
+    public Comment(String writer, String comment, String parentPostId) {
         this.writer = writer;
         this.comment_content = comment;
         this.parentPostId = parentPostId;
         this.cnt_recommend = 0; // 첫 추천 수는 0
     }
 
-    public void setWriter(String writer){
+    public void setWriter(String writer) {
         this.writer = writer;
     }
-    public void setComment_content(String comment){
+
+    public void setComment_content(String comment) {
         this.comment_content = comment;
     }
-    public void setCnt_recommend(int cnt_recommend){
+
+    public void setCnt_recommend(int cnt_recommend) {
         this.cnt_recommend = cnt_recommend;
     }
-    public void setParentPostId(String parentPostId){
+
+    public void setParentPostId(String parentPostId) {
         this.parentPostId = parentPostId;
     }
 
-    public String getWriter(){
-        return writer;
-    }
-    public String getComment_content(){
-        return comment_content;
-    }
-    public int getCnt_recommend(){
-        return cnt_recommend;
-    }
-    public String getParentPostId(){
-        return parentPostId;
+    public void setFlag(int flag) {
+        this.flag = flag;
     }
 
+    public String getWriter() {
+        return writer;
+    }
+
+    public String getComment_content() {
+        return comment_content;
+    }
+
+    public int getCnt_recommend() {
+        return cnt_recommend;
+    }
+
+    public String getParentPostId() {
+        return parentPostId;
+    }
+    public int getFlag() {
+        return flag;
+    }
 
     protected Comment(Parcel in) {
         writer = in.readString();

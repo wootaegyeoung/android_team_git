@@ -3,7 +3,10 @@ package com.gachon.mp_termproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -56,12 +59,12 @@ public class login extends AppCompatActivity {
                 String strPwd = login_password.getText().toString();
 
                 if (strEmail.equals("")) {
-                    Toast.makeText(login.this, "아이디를 입력하세요", Toast.LENGTH_SHORT).show();
+                    customToastView("아이디를 입력하세요");
                     strEmail = "****";
                     return;
                 }
                 if (strPwd.equals("")) {
-                    Toast.makeText(login.this, "비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
+                    customToastView("비밀번호를 입력하세요");
                     strPwd = "++++";
                     return;
                 }
@@ -118,5 +121,18 @@ public class login extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void customToastView(String text) {
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.mytoast_board, (ViewGroup) findViewById(R.id.toast_layout_root));
+        TextView textView = layout.findViewById(R.id.textboard);
+        textView.setText(text);
+
+        Toast toastView = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
+        toastView.setGravity(Gravity.BOTTOM, 0, 0);
+        toastView.setView(layout);
+        toastView.show();
     }
 }

@@ -43,10 +43,14 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             ib_like = itemView.findViewById(R.id.btn_like);
         }
 
-        public void bind(Comment comment, int index) {
+        public void bind(Comment comment, int index, int flag ) {
             cm_writer.setText(comment.getWriter());
             cm_content.setText(comment.getComment_content());
             cm_cnt_recommend.setText(Integer.toString(comment.getCnt_recommend()));
+            if(flag == 0)
+                ib_like.setEnabled(true);
+            else if(flag == 1)
+                ib_like.setEnabled(false);
             ib_like.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -106,6 +110,17 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     public CommentAdapter(List<Comment> commentList) {
         this.commentList = commentList;
     }
+
+
+    // 클릭이벤트 처리 부분
+    public interface OnItemClickListener {
+        void onItemClick(Comment comment);
+    }
+    private CommentAdapter.OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(CommentAdapter.OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
     @NonNull
     @Override
     public CommentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -118,8 +133,15 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull CommentAdapter.ViewHolder holder, int position) {
         Comment comment = commentList.get(position);
-        holder.bind(comment, position);
-
+        holder.bind(comment, position, comment.getFlag());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(comment);
+                }
+            }
+        });
     }
 
     @Override

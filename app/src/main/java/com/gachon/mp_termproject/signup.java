@@ -2,7 +2,10 @@ package com.gachon.mp_termproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -67,24 +70,22 @@ public class signup extends AppCompatActivity {
                 String strPhone = edit_phone.getText().toString();
 
 
-
-
                 // null 처리
 
                 if(strName.equals("")) {
-                    Toast.makeText(signup.this, "닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    customToastView("닉네임을 입력해주세요.");
                     return;
                 }
                 if(strEmail.equals("")) {
-                    Toast.makeText(signup.this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    customToastView("이메일을 입력해주세요.");
                     return;
                 }
                 if(strPhone.equals("")) {
-                    Toast.makeText(signup.this, "번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    customToastView("전화번호를 입력해주세요.");
                     return;
                 }
                 if(strPwd.equals("")) {
-                    Toast.makeText(signup.this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    customToastView("비밀번호를 입력해주세요.");
                     return;
                 }
 
@@ -92,7 +93,7 @@ public class signup extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
-                            Toast.makeText(signup.this, "닉네임이 중복됩니다", Toast.LENGTH_SHORT).show();
+                            customToastView("닉네임이 중복됩니다.");
                         }else {
                             // Firebase Auth 진행
                             mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(signup.this, new OnCompleteListener<AuthResult>() {
@@ -110,9 +111,10 @@ public class signup extends AppCompatActivity {
 
                                         mDatabaseRef.child("UserAccount").child(strName).setValue(account);
                                         mDatabaseRef.child("UserAccount").child(strName).child("reward").setValue(0); // 상금정보 업데이트
-                                        Toast.makeText(signup.this, "회원가입에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                                        customToastView("회원가입에 성공했습니다.");
+                                        finish();
                                     } else{
-                                        Toast.makeText(signup.this, "회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                        customToastView("회원가입에 실패했습니다.");
                                     }
                                 }
                             });
@@ -126,5 +128,18 @@ public class signup extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void customToastView(String text){
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.mytoast_board, (ViewGroup) findViewById(R.id.toast_layout_root));
+        TextView textView = layout.findViewById(R.id.textboard);
+        textView.setText(text);
+
+        Toast toastView = Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT);
+        toastView.setGravity(Gravity.BOTTOM,0,0);
+        toastView.setView(layout);
+        toastView.show();
     }
 }

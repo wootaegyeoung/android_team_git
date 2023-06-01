@@ -17,5 +17,6 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_bar" />
+        app:menu="@menu/bottom_bar"
+        android:background="#EDEDED"/>
 </LinearLayout>
