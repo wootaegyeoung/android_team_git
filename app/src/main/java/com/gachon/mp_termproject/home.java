@@ -127,7 +127,7 @@ public class home extends Fragment {
 
                         List<Comment> newCommentList = new ArrayList<>();
                         for (Map<String, Comment> cm : commentMap) {
-                            Comment newComment = new Comment();
+                            Comment newComment = new Comment(2);
                             for (String key : cm.keySet()) {
                                 Object value = cm.get(key);
                                 if (key.equalsIgnoreCase("cnt_recommend")) {

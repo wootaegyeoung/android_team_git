@@ -139,7 +139,7 @@ public class clickBillboard_free extends AppCompatActivity {
                 List<Map<String, Comment>> commentMap = (List<Map<String, Comment>>) snapshot.get("댓글");
                 List<Comment> newCommentList = new ArrayList<>();
                 for (Map<String, Comment> cm : commentMap) {
-                    Comment newComment = new Comment();
+                    Comment newComment = new Comment(1);
                     for (String key : cm.keySet()) {
                         Object value = cm.get(key);
                         if (key.equalsIgnoreCase("cnt_recommend")) {

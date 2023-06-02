@@ -29,15 +29,15 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="36dp"
             android:text="이름"
-            android:textColor = "#000000"
+            android:textColor="#000000"
             android:textSize="50px" />
 
         <LinearLayout
-            android:id = "@+id/layout_deadline"
+            android:id="@+id/layout_deadline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="160dp"
-            android:layout_marginTop ="25dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/conner2">
 
             <ImageButton
@@ -64,24 +64,23 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="29dp"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="270dp"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="35dp"
+            android:layout_marginRight="75dp"
             android:src="@drawable/rank1" />
 
         <TextView
             android:id="@+id/cb_tv_topReward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="300dp"
             android:layout_marginTop="36dp"
+            android:layout_marginLeft="300dp"
             android:text="30,00"
-            android:textColor = "#000000"
-            android:textStyle = "bold"
-            android:textSize="50px" />
+            android:textColor="#000000"
+            android:textSize="50px"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/cb_img"
@@ -89,19 +88,27 @@
             android:layout_height="240dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="0dp"
             android:layout_marginTop="73dp" />
 
-        <TextView
-            android:id="@+id/cb_content"
-            android:layout_width="394dp"
-            android:layout_height="55dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="320dp"
-            android:text="글"
-            android:textColor="#000000"
-            android:textSize="50px" />
+        <ScrollView
+            android:id="@+id/sc_content"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="320dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/cb_content"
+                    android:layout_width="394dp"
+                    android:layout_height="match_parent"
+                    android:text="글"
+                    android:textColor="#000000"
+                    android:textSize="17dp" />
+            </LinearLayout>
+        </ScrollView>
 
         <RelativeLayout
             android:id="@+id/cb_rewardInfo"
@@ -126,10 +133,10 @@
                 android:id="@+id/cb_tv_rank1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="37dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="47dp"
+                android:layout_marginRight="10dp"
                 android:text="30,000"
                 android:textSize="20dp" />
 
@@ -137,10 +144,10 @@
                 android:id="@+id/cb_tv_rank2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="37dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="96dp"
+                android:layout_marginRight="10dp"
                 android:text="20,000"
                 android:textSize="20dp" />
 
@@ -148,10 +155,10 @@
                 android:id="@+id/cb_tv_rank3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="37dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="147dp"
+                android:layout_marginRight="10dp"
                 android:text="10,000"
                 android:textSize="20dp" />
 
@@ -184,9 +191,7 @@
             android:id="@+id/layout_comment"
             android:layout_width="394dp"
             android:layout_height="269dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="380dp"
+            android:layout_below = "@+id/sc_content"
             android:background="@drawable/edge"
             android:orientation="vertical">
 

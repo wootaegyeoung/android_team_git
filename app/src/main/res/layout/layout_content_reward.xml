@@ -39,9 +39,9 @@
         android:id="@+id/reward"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop = "15dp"
-        android:layout_marginLeft="320dp"
+        android:layout_marginRight="70dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/rank1"></ImageView>
 
@@ -49,8 +49,7 @@
         android:id="@+id/tv_reward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="343dp"
+        android:layout_marginLeft="340dp"
         android:layout_marginTop = "15dp"
         android:textAlignment="center"
         android:text="20000"

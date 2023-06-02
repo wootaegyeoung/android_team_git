@@ -11,16 +11,15 @@ public class Comment implements Parcelable {
     private String comment_content; // 댓글 내용
     private int cnt_recommend; // 추천 수
     private String parentPostId; // 댓글이 속한 글의 id
-    private int flag = 0;
     private int commentType; // 1: 자유 / 2: 공모전
 
 
-    public Comment() {
+    public Comment(int commentType) {
         this.parentPostId = "";
         this.writer = "";
         this.comment_content = "";
         this.cnt_recommend = 0;
-        this.commentType = 1;
+        this.commentType = commentType;
     }
 
     public Comment(String writer, String comment, String parentPostId, int commentType) {
@@ -47,9 +46,6 @@ public class Comment implements Parcelable {
         this.parentPostId = parentPostId;
     }
 
-    public void setFlag(int flag) {
-        this.flag = flag;
-    }
 
     public void setCommentType(int type) {
         this.commentType = type;
@@ -71,9 +67,6 @@ public class Comment implements Parcelable {
         return parentPostId;
     }
 
-    public int getFlag() {
-        return flag;
-    }
 
     public int getCommentType() {
         return commentType;

@@ -26,9 +26,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder>{
+public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> {
 
     private List<Comment> commentList;
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView cm_writer;
         private TextView cm_content;
@@ -43,14 +44,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             ib_like = itemView.findViewById(R.id.btn_like);
         }
 
-        public void bind(Comment comment, int index, int flag, int commentType) {
+        public void bind(Comment comment, int index, int commentType) {
             cm_writer.setText(comment.getWriter());
             cm_content.setText(comment.getComment_content());
             cm_cnt_recommend.setText(Integer.toString(comment.getCnt_recommend()));
-            if(flag == 0)
-                ib_like.setEnabled(true);
-            else if(flag == 1)
-                ib_like.setEnabled(false);
             ib_like.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -59,14 +56,15 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                     comment.setCnt_recommend(cnt_recommend); // 추천수 갱신
 
 
-
                     // 갱신된 추천 수를 디비에 갱신하기
                     String collection = "";
 
-                    if(commentType == 1)
+                    if (commentType == 1)
                         collection = "Free_Writes";
-                    else if(commentType == 2)
+                    else if (commentType == 2)
                         collection = "Contest_Writes";
+
+                    System.out.println(comment.getParentPostId());
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     DocumentReference documentRef = FirebaseFirestore.getInstance().collection(collection).document(comment.getParentPostId());
 
@@ -113,6 +111,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             });
         }
     }
+
     public CommentAdapter(List<Comment> commentList) {
         this.commentList = commentList;
     }
@@ -122,11 +121,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     public interface OnItemClickListener {
         void onItemClick(Comment comment);
     }
+
     private CommentAdapter.OnItemClickListener onItemClickListener;
 
     public void setOnItemClickListener(CommentAdapter.OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
+
     @NonNull
     @Override
     public CommentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -139,7 +140,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull CommentAdapter.ViewHolder holder, int position) {
         Comment comment = commentList.get(position);
-        holder.bind(comment, position, comment.getFlag(), comment.getCommentType());
+        holder.bind(comment, position, comment.getCommentType());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
