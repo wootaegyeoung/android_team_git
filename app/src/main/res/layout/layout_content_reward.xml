@@ -41,7 +41,7 @@
         android:layout_height="20dp"
         android:layout_alignParentLeft="true"
         android:layout_marginTop = "15dp"
-        android:layout_marginLeft="300dp"
+        android:layout_marginLeft="320dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/rank1"></ImageView>
 
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="323dp"
+        android:layout_marginLeft="343dp"
         android:layout_marginTop = "15dp"
         android:textAlignment="center"
         android:text="20000"
@@ -68,7 +68,7 @@
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_marginHorizontal="10dp"
         android:layout_marginLeft="2dp"
