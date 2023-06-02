@@ -39,23 +39,23 @@
         android:id="@+id/reward"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="12dp"
-        android:background="@drawable/rank1"
-
-        ></ImageView>
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop = "15dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rank1"></ImageView>
 
     <TextView
         android:id="@+id/tv_reward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="41dp"
-        android:layout_toLeftOf="@+id/reward"
-        android:text="20000 P"
-        android:textColor="@color/black"></TextView>
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop = "15dp"
+        android:textAlignment="center"
+        android:text="20000"
+        android:textColor="@color/black"
+        android:textStyle="bold"></TextView>
 
     <ImageView
         android:id="@+id/image"
