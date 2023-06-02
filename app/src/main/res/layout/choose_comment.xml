@@ -28,7 +28,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_select_comment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="240dp"
         android:layout_marginBottom="10dp" />
 
 
